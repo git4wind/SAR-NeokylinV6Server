@@ -1,0 +1,77 @@
+一、客户端主程序使用的开源软件介绍
+    说明：在位置中（src）代表源文件位置.@为编译目录,#为hbLinuxAudit1.0根目录
+1.依赖软件编译说明
+名称
+位置
+依赖	目标	
+作用
+openssl-1.0.1p
+src:#/depends/openssl
+
+无
+@/libssl.a
+@/libcrypto.a
+@/include/openssl/	
+1.用于主程序ssl通信
+2.用于SQLChiper加密使用
+sqlite-3081101
+src:#/depends/sqlite
+无	
+@/.libs/sqlite3.a
+@/sqlite3.h
+1.用于存储日志信息
+sqlcipher
+src:#/depends/sqlcipher/sqlcipher-master
+libcrypto.a
+tcl
+@/.libs/sqlcipher.a
+@/sqlite3.h
+2.用于替代sqlite,提供加密日志存储
+2.主程序框架依赖库编译说明
+名称
+位置
+依赖	目标	
+作用
+测试程序
+log
+src:#/src/libs/log
+
+无
+#/src/libs/libs/libha_la_log.a
+#/src/libs/includes/hb_la_log.h	
+1.用于程序格式化日志输出，便于调试维护
+@/hb_la_log_test/
+conffile	
+src:#/src/libs/lconfile
+libha_la_log.a
+hb_la_log.h	
+#/src/libs/libs/libha_la_conf.a
+#/src/libs/includes/hb_la_conf.h
+1.读取配置文件
+@/hb_la_conf_test/
+sqlcipher
+src:#/depends/sqlcipher/sqlcipher-master
+libcrypto.a
+tcl
+openssl-devel
+@/.libs/sqlcipher.a
+@/sqlite3.h
+2.用于替代sqlite,提供加密日志存储
+
+二、依赖软件编译说明
+    说明：    1.#为hbLinuxAudit1.0根目录
+                   2.若编译失败有可能是权限问题，请以root权限执行。
+1.openssl编译
+    1.进入#/depends/openssl/openssl-1.0.1p
+    2.执行./config
+    3.make
+2.sqlite编译
+    1.进入#/depneds/sqlite/sqlite-autoconf-3081101
+    2.执行./configure
+    3.make
+3.sqlcipher编译
+    reference:https://www.zetetic.net/sqlcipher/introduction/
+    1.进入#/depends/sqlcipher/sqlcipher-master
+    2../configure --enable-tempstore=yes CFLAGS="-DSQLITE_HAS_CODEC"
+LDFLAGS="#/depends/openssl/openssl-1.0.1p/libcrypto.a"
+    3.make

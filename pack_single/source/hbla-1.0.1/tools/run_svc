@@ -1,0 +1,18 @@
+#!/bin/bash
+
+sleep 10
+while true;
+do
+	if [ ! -f "/usr/local/hb/.configed" ]; then
+		/usr/local/hb/tools/xhosttool
+		export DISPLAY=:0
+		/usr/local/hb/tools/xhosttool
+		java -jar /usr/local/hb/tools/config.jar
+	else
+		RESULT=`ps -ef |grep hbla|sed -e "/grep/d"`
+		if [ -z "$RESULT" ]; then
+		/usr/local/hb/hbla >/usr/local/hb/log 2>&1 &
+		fi
+	fi
+	sleep 3
+done

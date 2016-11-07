@@ -1,0 +1,9 @@
+#!/bin/bash
+while true;
+do
+	RESULT=`ps -ef |grep hbSeverCon|sed -e "/grep/d"`
+	if [ -z "$RESULT" ]; then
+		/usr/local/hbserver/hbServerCon >/usr/local/hbserver/logs 2>&1 &
+	fi
+	sleep 3
+done

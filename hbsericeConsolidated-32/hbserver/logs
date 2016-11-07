@@ -1,0 +1,6 @@
+{HB_LinuxAudit}-Sat Jul 30 18:49:32 2016[INFO]-hbla_main.c:131:hbla_main_isRuning	count is 3
+{HB_LinuxAudit}-Sat Jul 30 18:49:32 2016[ERROR]-hbla_main.c:150:hbla_main_harden	process is already runing
+
+{HB_LinuxAudit}-Sat Jul 30 18:49:32 2016[ERROR]-hbla_main.c:166:main	harden the process error!
+exit
+

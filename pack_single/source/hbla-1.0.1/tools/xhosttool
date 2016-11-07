@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for u in $(who |cut -d " " -f 1 | sort |uniq);do
+	su - $u -c 'xhost +'
+	echo $u
+done
+
+su - root -c 'xhost +'

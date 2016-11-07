@@ -1,0 +1,10 @@
+#!/bin/bash
+
+status=$(service $1 status)
+#echo $status
+if [[ $status =~ ("正在运行")|("启用")|("filter")|("running") ]] ;then
+	echo 1 > /usr/local/hbserver/iptables_status
+else
+	echo 0 > /usr/local/hbserver/iptables_status
+fi
+

@@ -1,0 +1,6 @@
+
+中科方德系统
+
+1、电脑先连接互联网
+2、apt-get install ssl-devel
+3、apt-get install libusb-1.0.a

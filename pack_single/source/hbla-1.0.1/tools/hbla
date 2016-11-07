@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+# the server of hbla
+#
+#author:pc
+#time:2015-11-23 15:21
+
+EXEC_PATH=/usr/local/hb
+EXEC=hbla
+PID_FILE=/var/run/hbla.pid
+DAEMON=/usr/local/hb/tools/run_svc
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+ 
+if ! [ -x $EXEC_PATH/$EXEC ] ; then
+       echo "ERROR: $EXEC_PATH/$EXEC not found"
+       exit 1
+fi
+
+start()
+{
+       echo "Starting $EXEC ..."
+       $DAEMON > /dev/null &
+       usleep 100
+       echo "Starting $EXEC: [  OK  ]"        
+}
+
+stop()
+{
+       echo "Stoping $EXEC ..."
+       killall -9 run_svc >/dev/null &
+       usleep 100
+       killall -9 hbla >/dev/null &
+       killall -9 syshba >/dev/null &
+       usleep 100
+       echo "Shutting down $EXEC: [  OK  ]"     
+}
+
+case "$1" in
+	start)
+	start
+	;;
+	stop)
+	stop
+	;;
+	status)
+	status -p $PID_FILE $DAEMON
+	;;
+	*)
+	exit 1
+esac
+
+exit $?

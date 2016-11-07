@@ -1,0 +1,31 @@
+代码清单说明:
+
+1、主程序所在位置：LinuxAuditHost1.0(中科方得)\src\main (生产文件: hbla)
+2、刻录模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_cdburn (libburnaudit.so) 拷贝到主程序下libs目录下
+3、配置模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_config (libconfigure.so)
+4、文件模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_fileMonitor1 (libfile.so)
+5、进程模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_proc (libprocess.so)
+6、网络模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_net (net.ko 和 libnet.so) 先make，再make all
+7、移动设备模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_mvstorage (libaccredit.so)
+8、开关机模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_hoststat (libhoststat.so)
+9、违规外联模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_illcon (libillcon.so)
+10、网络端口模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_netport (libnetport.so)
+11、补丁模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_patch (libpatch.so)
+12、性能模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_property (libcpu.so)
+13、服务模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_service (libservice.so)
+14、共享模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_share (libshare.so)
+15、软件模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_software1 (libhostsoft.so) rpm -qa
+16、用户模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_user (libsysuser.so)
+17、地址模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_ipconfig (libaddr.so)
+18、卸载验证模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_usbkey (libusbkey.so)
+19、硬件模块所在位置：LinuxAuditHost1.0(中科方得)\src\modules\hbla_hardconf (libhardconf.so)
+
+20、需要的日志信息库：LinuxAuditHost1.0(中科方得)\src\basemod\log (libhbla_log.a)
+21、需要的openssl库：LinuxAuditHost1.0(中科方得)\src\basemod\sslcon (libhbla_sslcon.so)
+22、需要的sqlchipher库：LinuxAuditHost1.0(中科方得)\src\basemod\sqlhelp (libhbla_sqlhelp.a)
+23、需要的模块加载库：LinuxAuditHost1.0(中科方得)\src\basemod\modcall (libhbla_mod.a)
+24、需要的系统配置库：LinuxAuditHost1.0(中科方得)\src\basemod\conffile (libhbla_conf.a)
+25、需要的主机信息库：LinuxAuditHost1.0(中科方得)\src\basemod\hostinfo (libhbla_hostinfo.so)
+
+26、需要编译的openssl库：LinuxAuditHost1.0(中科方得)\depends\openssl (libcrypto.a 和 libssl.a)
+27、需要编译的sqlchipher库：LinuxAuditHost1.0(中科方得)\depends\sqlcipher (libsqlcipher.a)

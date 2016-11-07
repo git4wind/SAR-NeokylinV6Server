@@ -1,0 +1,12 @@
+*.o
+*.h.gch
+*.i
+*.s
+*.mod.o
+*.ko.unsigned
+*.symvers
+modul*
+*.mod.c
+*.mod.o
+~$
+a.out
